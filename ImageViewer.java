@@ -16,6 +16,7 @@ import java.util.Iterator;
  * 
  * To start the application, create an object of this class.
  * 
+ * 
  * @author Michael Kölling and David J. Barnes.
  * @version 3.1
  */
