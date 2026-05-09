@@ -1,10 +1,10 @@
 import java.awt.Color;
 
 /**
- * An image filter to remove color from an image.
+ * An image filter to tint and image blue.
  * 
- * @author Michael Kölling and David J. Barnes.
- * @version 1.0
+ * @author Federico Cadavid Rojas
+ * @version 1
  */
 public class BlueTintFilter extends Filter
 {

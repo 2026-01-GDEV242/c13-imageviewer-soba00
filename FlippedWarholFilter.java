@@ -3,12 +3,15 @@ import java.awt.Color;
 /**
  * Warhol-style image filter that splits an image into four quadrants.
  * The top-left quadrant shows the original image,
- * Other three quadrants display tinted versions (red, green, and blue).
+ * Other three quadrants display tinted versions (red, green, and blue) mirrored
+ * about both axis.
+ *
+ *
  *
  * @author Federico Cadavid Rojas
  * @version 1
  */
-public class WarholFilter extends Filter
+public class FlippedWarholFilter extends Filter
 {
     //fields from SmoothFilter
     private OFImage storedImage;
@@ -16,10 +19,10 @@ public class WarholFilter extends Filter
     private int height;
     
     /**
-     * Constructor for objects of class WarholFilter.
+     * Constructor for objects of class FlippedWarholFilter.
      * @param name The name of the filter.
      */
-    public WarholFilter(String name)
+    public FlippedWarholFilter(String name)
     {
         super(name);
     }
@@ -56,16 +59,16 @@ public class WarholFilter extends Filter
             
                 
                 //Q1 (TOP RIGHT)-
-                image.setPixel(x + halfWidth, y, redTint); //red tint image
+                image.setPixel(width - 1 - x, y, redTint); //red tint image
                 
                 //Q2- (TOP LEFT)
                 image.setPixel(x, y, pix); //original image
                 
                 //Q3- (BOTTOM LEFT)
-                image.setPixel(x, y + halfHeight, greenTint); //green tint image
+                image.setPixel(x, height - 1 - y, greenTint); //green tint image
                 
                 //Q4 (BOTTOM RIGHT)- 
-                image.setPixel(x + halfWidth, y + halfHeight, blueTint); //blue tint
+                image.setPixel(width - 1 - x, height - 1 - y, blueTint); //blue tint
             }
             
         }

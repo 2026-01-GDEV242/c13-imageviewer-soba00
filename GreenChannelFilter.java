@@ -1,9 +1,9 @@
 import java.awt.Color;
 
 /**
- * An image filter to remove color from an image.
+ * An image filter to remove color from an image and isolate green channel.
  * 
- * @author Michael Kölling and David J. Barnes.
+ * @author Federico Cadavid Rojas
  * @version 1.0
  */
 public class GreenChannelFilter extends Filter
