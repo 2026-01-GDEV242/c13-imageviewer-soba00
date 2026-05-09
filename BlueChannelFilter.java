@@ -29,8 +29,8 @@ public class BlueChannelFilter extends Filter
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 Color pix = image.getPixel(x, y);
-                int avg = pix.getBlue();
-                image.setPixel(x, y, new Color(avg, avg, avg));
+                int color = pix.getBlue();
+                image.setPixel(x, y, new Color(color, color, color));
             }
         }
     }

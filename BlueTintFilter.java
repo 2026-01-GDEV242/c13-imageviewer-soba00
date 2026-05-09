@@ -6,13 +6,13 @@ import java.awt.Color;
  * @author Michael Kölling and David J. Barnes.
  * @version 1.0
  */
-public class GreenChannelFilter extends Filter
+public class BlueTintFilter extends Filter
 {
     /**
-     * Constructor for objects of class GreenChannelFilter.
+     * Constructor for objects of class BlueTintFilter.
      * @param name The name of the filter.
      */
-    public GreenChannelFilter(String name)
+    public BlueTintFilter(String name)
     {
         super(name);
     }
@@ -29,8 +29,8 @@ public class GreenChannelFilter extends Filter
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 Color pix = image.getPixel(x, y);
-                int color = pix.getGreen();
-                image.setPixel(x, y, new Color(color, color, color));
+                int color = pix.getBlue();
+                image.setPixel(x, y, new Color(0, 0, color));
             }
         }
     }
