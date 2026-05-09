@@ -43,11 +43,25 @@ public class WarholFilter extends Filter
         for(int y = 0; y < halfHeight; y++) {
             for(int x = 0; x < halfWidth; x++) {
                 
-                //Get color data of shrunken image pixels
+                //STEP 1: Get color data of single shrunken image pixel
                 Color pix = storedImage.getPixel(x * 2, y);
-                int color = pix.getRed();
-                image.setPixel(x, y, new Color(color, 0, 0));
+                Color red = new Color(pix.getRed(), 0, 0);
+                Color green = new Color(0, pix.getGreen(), 0);
+                Color blue = new Color(0, 0, pix.getBlue());
                 
+                //STEP 2: Repeat pixel's data in four places moddified accordingly
+            
+                //Q1- 
+                image.setPixel(x, y, pix); //original image
+                
+                //Q2-
+                image.setPixel(x+halfWidth, y, pix);
+                
+                //Q1- 
+                image.setPixel(x, y, pix);
+                
+                //Q1- 
+                image.setPixel(x, y, pix);
             }
             
         }
