@@ -8,6 +8,11 @@ import java.awt.Color;
  */
 public class WarholFilter extends Filter
 {
+    //fields from SmoothFilter
+    private OFImage original;
+    private int width;
+    private int height;
+    
     /**
      * Constructor for objects of class WarholFilter.
      * @param name The name of the filter.
@@ -24,14 +29,29 @@ public class WarholFilter extends Filter
      */
     public void apply(OFImage image)
     {
+        //OFI Mage the Wise (Oracle Forseerer of Images)
+        OFImage storedImage = new OFImage(image); //OFI (Oracle Forseerer of Images)  Mage the Wise 
+        
         int height = image.getHeight();
         int width = image.getWidth();
-        for(int y = 0; y < height; y++) {
-            for(int x = 0; x < width; x++) {
-                Color pix = image.getPixel(x, y);
+        
+        //needed for analyzing quadrant set ahead of time to reduce method calls
+        int halfHeight = height / 2;
+        int halfWidth = width / 2;
+        
+        
+        for(int y = 0; y < halfHeight; y++) {
+            for(int x = 0; x < halfWidth; x++) {
+                
+                //Get color data of shrunken image pixels
+                Color pix = storedImage.getPixel(x * 2, y);
                 int color = pix.getRed();
                 image.setPixel(x, y, new Color(color, 0, 0));
+                
             }
+            
         }
+        
     }
+    
 }
